@@ -1,3 +1,7 @@
 import { tweetsData } from "./data.js";
+const tweetInput = document.getElementById("tweet-input");
+const tweetBtn = document.getElementById("tweet-btn");
 
-console.log(tweetsData[0]);
+tweetBtn.addEventListener("click", function () {
+  console.log(tweetInput.value);
+});
