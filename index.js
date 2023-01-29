@@ -7,18 +7,18 @@ tweetBtn.addEventListener("click", function () {
 });
 
 document.addEventListener("click", function (e) {
-  if (e.target.dataset.reply) {
-    console.log(e.target.dataset.reply);
-  }
-
   if (e.target.dataset.like) {
-    console.log(e.target.dataset.like);
-  }
-
-  if (e.target.dataset.retweet) {
-    console.log(e.target.dataset.retweet);
+    handleLikeClick(e.target.dataset.like);
   }
 });
+
+function handleLikeClick(tweetId) {
+  const targetTweetObj = tweetsData.filter(function (tweet) {
+    return tweet.uuid === tweetId;
+  })[0];
+  targetTweetObj.likes++;
+  render();
+}
 
 function getFeedHtml() {
   let feedHtml = ``;
